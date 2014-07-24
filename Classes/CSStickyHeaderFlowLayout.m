@@ -89,7 +89,7 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
         CGFloat maxY = CGRectGetMaxY(frame);
 
         // make sure the frame won't be negative values
-        CGFloat y = MIN(maxY - self.parallaxHeaderMinimumReferenceSize.height, bounds.origin.y + self.collectionView.contentInset.top);
+        CGFloat y = MIN(maxY - self.parallaxHeaderMinimumReferenceSize.height, bounds.origin.y;// + self.collectionView.contentInset.top);
         CGFloat height = MAX(1, -y + maxY);
 
 
@@ -103,7 +103,7 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
 
         // When parallaxHeaderAlwaysOnTop is enabled, we will check when we should update the y position
         if (self.parallaxHeaderAlwaysOnTop && height <= self.parallaxHeaderMinimumReferenceSize.height) {
-            CGFloat insetTop = self.collectionView.contentInset.top;
+            CGFloat insetTop = 0;//self.collectionView.contentInset.top;
             // Always stick to top but under the nav bar
             y = self.collectionView.contentOffset.y + insetTop;
             currentAttribute.zIndex = 2000;
@@ -178,7 +178,7 @@ NSString *const CSStickyHeaderParallaxHeader = @"CSStickyHeaderParallexHeader";
     CGPoint origin = attributes.frame.origin;
 
     CGFloat sectionMaxY = CGRectGetMaxY(lastCellAttributes.frame) - attributes.frame.size.height;
-    CGFloat y = CGRectGetMaxY(currentBounds) - currentBounds.size.height + self.collectionView.contentInset.top;
+    CGFloat y = CGRectGetMaxY(currentBounds) - currentBounds.size.height;// + self.collectionView.contentInset.top;
 
     if (self.parallaxHeaderAlwaysOnTop) {
         y += self.parallaxHeaderMinimumReferenceSize.height;
